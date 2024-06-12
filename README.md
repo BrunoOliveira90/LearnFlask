@@ -3,4 +3,6 @@ Learning how to use Flask
 
 12/06/2024 18:04h > Project cloned into local folder
 
-12/06/2024 18:35h > 1st vídeo is done, commiting changes
+12/06/2024 18:35h > 1st step is done, commiting changes. Project started, basic function to display text on browser, redirect, and url_for.
+
+12/06/2024 19:26h > 2nd step is done, render_template, html file, and coding in html file. Sharing parameters and valuers between backend (Python+FLASK) and frontend (Html file).
