@@ -10,3 +10,5 @@ Learning how to use Flask
 13/06/2024 15:54h > 3rd step is done, Started Template Inheritance, added bootstrap and a simple nav bar.
 
 13/06/2024 19:40h > 4th step is done, GET & POST Methods, sendind data from the front to the back end.
+
+14/06/2024 10:50h > 5th step is done, maintaing sessions.
