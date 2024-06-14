@@ -12,3 +12,5 @@ Learning how to use Flask
 13/06/2024 19:40h > 4th step is done, GET & POST Methods, sendind data from the front to the back end.
 
 14/06/2024 10:50h > 5th step is done, maintaing sessions.
+
+14/06/2024 12:20h > 6thstep is done, Message flashing. To show something, or confirm an action.
