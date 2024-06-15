@@ -13,4 +13,6 @@ Learning how to use Flask
 
 14/06/2024 10:50h > 5th step is done, maintaing sessions.
 
-14/06/2024 12:20h > 6thstep is done, Message flashing. To show something, or confirm an action.
+14/06/2024 12:20h > 6th step is done, Message flashing. To show something, or confirm an action.
+
+15/06/2024 18:50h > 7th step is done, storing email data in session, and started db table with id, name and email.
