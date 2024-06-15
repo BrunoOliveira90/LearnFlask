@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = "hello"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://users.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.permanent_session_lifetime = timedelta(minutes=10)
 
@@ -23,6 +23,9 @@ class users(db.Model):
 def home():
     return render_template("index.html")
 
+@app.route("/view")
+def view():
+    return render_template("view.html", values=users.query.all())
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
@@ -30,7 +33,17 @@ def login():
         session.permanent=True
         user = request.form["nm"]
         session["user"] = user
-        flash("Login succesful!", "info")
+
+        found_user = users.query.filter_by(name=user).first()
+        if found_user:
+            session["email"] = found_user.email
+
+        else:
+            usr = users(user, "")
+            db.session.add(usr)
+            db.session.commit()
+
+        flash("Login succesful!")
         return redirect(url_for("user"))
     else:
         if "user" in session:
@@ -49,6 +62,9 @@ def user():
         if request.method == "POST":
             email = request.form["email"]
             session["email"] = email
+            found_user = users.query.filter_by(name=user).first()
+            found_user.email = email
+            db.session.commit()
             flash("Email was saved!")
         else:
             if "email" in session:
@@ -70,5 +86,6 @@ def logout():
     return redirect(url_for("login"))
  
 if __name__ == "__main__":
-    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
