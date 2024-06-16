@@ -18,3 +18,6 @@ Learning how to use Flask
 15/06/2024 18:50h > 7th step is done, storing email data in session, and started db table with id, name and email.
 
 15/06/2024 20:30h > 8th step is done, manipulating data in database, saving sessions email into db table.
+
+16/06/2024 > 9th step is done, Basic usage of image and stylishing with CSS. (on nre file style.py)
+
