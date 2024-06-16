@@ -19,5 +19,7 @@ Learning how to use Flask
 
 15/06/2024 20:30h > 8th step is done, manipulating data in database, saving sessions email into db table.
 
-16/06/2024 > 9th step is done, Basic usage of image and stylishing with CSS. (on nre file style.py)
+16/06/2024 16:00h > 9th step is done, Basic usage of image and stylishing with CSS. (on new file style.py).
+
+16/06/2024 16:40h > 10th step is done, Blueprints & using multiple python files.
 
