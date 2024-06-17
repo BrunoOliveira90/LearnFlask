@@ -23,3 +23,4 @@ Learning how to use Flask
 
 16/06/2024 16:40h > 10th step is done, Blueprints & using multiple python files.
 
+17/06/2024 10:10h > Set up 2nd work desktop, with drive and clone repo.
