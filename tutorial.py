@@ -23,6 +23,10 @@ class users(db.Model):
 def home():
     return render_template("index.html")
 
+@app.route("/test2")
+def test2():
+    return render_template("test2.html")
+
 @app.route("/view")
 def view():
     return render_template("view.html", values=users.query.all())
