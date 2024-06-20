@@ -75,6 +75,10 @@ def user():
         flash("You are not logged in!", "info")
         return redirect(url_for("login"))
 
+@app.route("/test")
+def test():
+    return render_template("test.html")
+
 
 @app.route("/logout")
 def logout():
