@@ -28,3 +28,5 @@ Learning how to use Flask
 17/06/2024 10:15h > Pulled changes from 2nd desktop, everything synched.
 
 20/06/2024 09:30h > Adding test2.html to try some html and Styling.
+
+21/06/2024 10:40h > Added some new steps on html.
