@@ -30,3 +30,9 @@ Learning how to use Flask
 20/06/2024 09:30h > Adding test2.html to try some html and Styling.
 
 21/06/2024 10:40h > Added some new steps on html.
+
+24/06/2024 08:30h > Created html3 and dropdown button entry to html3, testing some GPT table codes.
+    git clone https://github.com/wtforms/flask-wtf
+    pip install -e ./flask-wtf
+    pip install -U WTForms
+    
