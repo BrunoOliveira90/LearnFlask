@@ -1,10 +1,15 @@
 from flask import Flask, redirect, url_for, render_template, request, session, flash
 from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+from forms import ProdutoForm
+
 
 app = Flask(__name__)
-app.secret_key = "hello"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
+app.config['SECRET_KEY'] = 'secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///produtos.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.permanent_session_lifetime = timedelta(minutes=10)
 
@@ -19,6 +24,14 @@ class users(db.Model):
         self.name = name
         self.email = email
 
+class Produto(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(80), nullable=False)
+    descricao = db.Column(db.String(200), nullable=False)
+    preco = db.Column(db.String(20), nullable=False)
+    imagem = db.Column(db.String(200), nullable=False)
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -26,6 +39,29 @@ def home():
 @app.route("/test2")
 def test2():
     return render_template("test2.html")
+
+
+@app.route("/test3")
+def test3():
+    produtos = Produto.query.all()
+    return render_template('test3.html', produtos=produtos)
+
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    form = ProdutoForm()
+    if form.validate_on_submit():
+        novo_produto = Produto(
+            nome=form.nome.data,
+            descricao=form.descricao.data,
+            preco=form.preco.data,
+            imagem=form.imagem.data
+        )
+        db.session.add(novo_produto)
+        db.session.commit()
+        flash('Produto adicionado com sucesso!', 'success')
+        return redirect(url_for('test3'))
+    return render_template('add.html', form=form)
+
 
 @app.route("/view")
 def view():
@@ -94,6 +130,6 @@ def logout():
     return redirect(url_for("login"))
  
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
+    #with app.app_context():
+    #    db.create_all()
     app.run(debug=True)
