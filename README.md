@@ -39,4 +39,4 @@ Learning how to use Flask
     this install necessary package to show forms that GPT sent me.
     14:00h added items to table, but w/o images, maybe next step.
 
-    
+25/06/2024 09:30h > Minor Html steps. Slider to change color.

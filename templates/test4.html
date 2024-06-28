@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}TEST 4 PAGE{% endblock %}
+
+{% block content %}
+<div class="slidercontainer">
+    <input type="range" min="1" max="100" value="50" class="custom-slider-range" id="myRange" oninput="changebackgroundcolor()">
+</div>
+
+<script>
+    function changeBackgroundColor() {
+        let slider = document.getElementById("myRange");
+        let value = slider.value;
+        let color = 'hsl(' + value + ', 100%, 50%)';
+        document.body.style.background = color;
+    }
+</script>
+<body style="background-color:rgb(105, 105, 105);">
+    
+</body>
+{% endblock %}

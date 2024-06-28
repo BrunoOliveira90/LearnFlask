@@ -46,6 +46,10 @@ def test3():
     produtos = Produto.query.all()
     return render_template('test3.html', produtos=produtos)
 
+@app.route("/test4")
+def test4():
+    return render_template("test4.html")
+
 @app.route('/add', methods=['GET', 'POST'])
 def add():
     form = ProdutoForm()
