@@ -8,3 +8,11 @@ class ProdutoForm(FlaskForm):
     preco = StringField('Preço', validators=[DataRequired()])
     imagem = StringField('URL da Imagem', validators=[DataRequired()])
     submit = SubmitField('Adicionar Produto')
+
+
+class EditarProdutoForm(FlaskForm):
+    nome = StringField('Nome', validators=[DataRequired()])
+    descricao = StringField('Descrição', validators=[DataRequired()])
+    preco = StringField('Preço', validators=[DataRequired()])
+    imagem = StringField('URL da Imagem', validators=[DataRequired()])
+    submit = SubmitField('Atualizar Produto')

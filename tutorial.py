@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from forms import ProdutoForm
+from forms import ProdutoForm, EditarProdutoForm
 
 
 app = Flask(__name__)
@@ -66,6 +66,28 @@ def add():
         return redirect(url_for('test3'))
     return render_template('add.html', form=form)
 
+@app.route('/edit/<int:produto_id>', methods=['GET', 'POST'])
+def edit(produto_id):
+    produto = Produto.query.get_or_404(produto_id)
+    form = EditarProdutoForm()
+
+    if form.validate_on_submit():
+        produto.nome = form.nome.data
+        produto.descricao = form.descricao.data
+        produto.preco = form.preco.data
+        produto.imagem = form.imagem.data
+
+        db.session.commit()
+        flash('Produto atualizado com sucesso!', 'success')
+        return redirect(url_for('index'))
+
+    elif request.method == 'GET':
+        form.nome.data = produto.nome
+        form.descricao.data = produto.descricao
+        form.preco.data = produto.preco
+        form.imagem.data = produto.imagem
+
+    return render_template('edit.html', form=form, produto=produto)
 
 @app.route("/view")
 def view():
