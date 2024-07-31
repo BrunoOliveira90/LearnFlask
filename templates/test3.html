@@ -25,6 +25,7 @@
                             <p class="card-text">{{ produto.descricao }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <small class="text-muted">{{ produto.preco }}</small>
+                                <a href="{{ url_for('edit', produto_id=produto.id) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
                             </div>
                         </div>
                     </div>
