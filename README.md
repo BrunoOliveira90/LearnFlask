@@ -40,3 +40,5 @@ Learning how to use Flask
     14:00h added items to table, but w/o images, maybe next step.
 
 25/06/2024 09:30h > Minor Html steps. Slider to change color.
+
+03/08/2024 20:00h > Adding image to phone, but still trying to fix the routes after.
