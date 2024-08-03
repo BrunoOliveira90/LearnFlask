@@ -8,7 +8,7 @@
         <h1 class="text-center">Editar Produto</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form method="POST" action="{{ url_for('edit', produto_id=produto.id) }}">
+                <form method="POST" action="{{ url_for('view', produto_id=produto.id) }}">
                     {{ form.hidden_tag() }}
                     <div class="form-group">
                         {{ form.nome.label(class="form-label") }}
